@@ -1,0 +1,46 @@
+theme = "amberwood"
+
+[editor]
+scrolloff = 8
+rulers = [80]
+line-number = "relative"
+cursorline = true
+bufferline = "always"
+true-color = true
+mouse = false
+color-modes = true
+
+[editor.indent-guides]
+render = true
+character = "|"
+
+[editor.statusline]
+left = ["mode", "spacer", "version-control", "spacer", "diagnostics", "file-name"]
+right = ["position-percentage", "spacer", "position"]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+"esc" = ["normal_mode", ":format", ":write"] # Quick save
+"#" = "toggle_comments"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+
+[keys.normal.space]
+q = ":bc"
+o = "file_picker_in_current_buffer_directory"
+
+[keys.normal.space.w]
+r = ":rla"
