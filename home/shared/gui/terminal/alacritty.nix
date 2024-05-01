@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 let
   font = "JetBrainsMono Nerd Font";
 in
@@ -7,6 +5,10 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
+      shell = {
+        program = "/bin/sh";
+        args = ["-l" "-c" "zellij attach POGGIES 2> /dev/null || zellij -s POGGIES"];
+      };
       cursor = {
         style = "Block";
         unfocused_hollow = true;
