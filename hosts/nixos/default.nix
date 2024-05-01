@@ -6,8 +6,12 @@
   imports =
     [
       ../../modules/system.nix
-      ../../modules/core/i18n.nix
-      ../../modules/core/user-group.nix
+      ../../modules/nixos/core/i18n.nix
+      ../../modules/nixos/core/user-group.nix
+      ../../modules/nixos/core/nix.nix
+      ../../modules/nixos/core/packages.nix
+      ../../modules/nixos/core/ssh.nix
+      ../../modules/nixos/core/user-group.nix
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

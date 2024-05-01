@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: let
+{ pkgs, ... }: let
   username = "zmeyer";
 in {
   nix.settings = {
@@ -21,16 +21,6 @@ in {
     builders-use-substitutes = true;
   };
 
-  # do garbage collection weekly to keep disk usage low
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 7d";
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -73,37 +63,6 @@ in {
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings = {
-      X11Forwarding = true;
-      PermitRootLogin = "no"; # disable root login
-      PasswordAuthentication = false; # disable password login
-    };
-    openFirewall = true;
-  };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    curl
-    git
-    sysstat
-    scrot
-    neofetch
-    xfce.thunar
-    nnn
-  ];
 
   services.xserver = {
     # Enable the X11 windowing system.
