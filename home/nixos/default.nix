@@ -1,0 +1,8 @@
+{
+  imports = [
+    ../shared
+
+    ./core
+    ./gui
+  ];
+}
