@@ -15,14 +15,11 @@
     just
     delta # Viewer for git diff output
     hyperfine # CLI benchmarking tool
-    gping
-    duf # Alternative to `df`
-    du-dust # A more intuitive version of `du`
-    gdu # Disk usage analyzer (replacement of `du`)
     doppler
     awscli2
     charm-freeze
     shell_gpt
+    poetry
 
     # archives
     zip
