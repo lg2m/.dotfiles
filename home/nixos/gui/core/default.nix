@@ -1,4 +1,5 @@
-{ pkgs, ... }: let
+{ pkgs, ... }:
+let
   catppuccin-rofi = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "rofi";
@@ -6,16 +7,13 @@
     sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
   };
 in {
-  imports = [
-    ./media.nix
-    ./xdg.nix
-    ./i3
- ];
+  imports = [ ./media.nix ./xdg.nix ./i3 ];
 
   # Home
   home.file.".background-image".source = ../../../../config/background-image;
-  home.file.".config/rofi/catppuccin-macchiato.rasi".source = catppuccin-rofi + "/basic/.local/share/rofi/themes/catppuccin-macchiato.rasi";
-  
+  home.file.".config/rofi/catppuccin-macchiato.rasi".source = catppuccin-rofi
+    + "/basic/.local/share/rofi/themes/catppuccin-macchiato.rasi";
+
   # Programs
   programs.autorandr = {
     enable = true;
@@ -36,7 +34,8 @@ in {
             mode = "1920x1080";
             primary = false;
             rate = "144";
-            position = "1920x0"; # DP-2 is on the right, starts right after the width of DP-3
+            position =
+              "1920x0"; # DP-2 is on the right, starts right after the width of DP-3
           };
         };
         fingerprint = {
@@ -46,7 +45,7 @@ in {
       };
     };
   };
-  
+
   programs.rofi = {
     enable = true;
     extraConfig = {
@@ -54,7 +53,7 @@ in {
       display-Network = " 󰤨  Network";
       display-drun = "   Apps ";
       display-run = "   Run ";
-      display-window = " 﩯  Window";
+      display-window = " 﩯Window";
       drun-display-format = "{icon} {name}";
       hide-scrollbar = true;
       icon-theme = "Oranchelo";
