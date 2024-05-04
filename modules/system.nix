@@ -10,12 +10,10 @@ in {
     # Substituters that will be considered before the official ones (https://cache.nixos.org)
     substituters = [
       "https://nix-community.cachix.org"
-      "https://cache.nixos.org"
     ];
 
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
 
     builders-use-substitutes = true;
@@ -64,13 +62,36 @@ in {
 
   # List services that you want to enable:
 
+  services.picom.enable = true;
+  
+  # This needs to be moved to desktop stuff
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
 
     # KDE Plasma Desktop Environment
-    desktopManager.plasma5.enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      wallpaper.mode = "fill";
+    };
+    # desktopManager.plasma5.enable = true;
 
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = username;
+      };
+
+      defaultSession = "none+i3";
+      lightdm.enable = true;
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [i3status i3lock i3blocks];
+    };
+    
     # Configure keymap in X11
     xkb = {
       layout = "us";
@@ -78,8 +99,9 @@ in {
     };
   };
 
+
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;

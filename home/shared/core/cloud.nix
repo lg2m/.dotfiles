@@ -7,8 +7,6 @@
     istioctl
     kubevirt
     kubernetes-helm
-    fluxcd
-    argocd
   ];
 
   programs = {
