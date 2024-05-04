@@ -17,5 +17,7 @@
     ffmpeg-full
     feh
     xbanish
+    xmousepasteblock
+    flameshot
   ];
 }
