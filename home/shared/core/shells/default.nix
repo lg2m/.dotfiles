@@ -9,6 +9,9 @@ let
     docs = "cd ~/Documents";
     dls = "cd ~/Downloads";
     g = "git";
+    cls = "clear";
+    ll = "ls -l";
+    la = "ls -la";
   };
 in {
   # only works in bash/zsh, not nushell
