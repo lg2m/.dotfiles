@@ -10,3 +10,4 @@
 - https://github.com/ALT-F4-LLC/dotfiles.nix
 - https://github.com/ryan4yin/nix-config
 - https://github.com/notusknot/dotfiles-nix
+- https://github.com/qwbarch/nix-config
