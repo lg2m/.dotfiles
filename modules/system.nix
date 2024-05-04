@@ -77,12 +77,6 @@ in {
     # desktopManager.plasma5.enable = true;
 
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = username;
-      };
-
-      defaultSession = "none+i3";
       lightdm.enable = true;
     };
 
@@ -99,6 +93,14 @@ in {
     };
   };
 
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = username;
+    };
+
+    defaultSession = "none+i3";
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   # services.displayManager.sddm.enable = true;
