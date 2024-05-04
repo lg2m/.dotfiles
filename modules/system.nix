@@ -1,16 +1,14 @@
-{ pkgs, ... }: let
-  username = "zmeyer";
+{ pkgs, ... }:
+let username = "zmeyer";
 in {
   nix.settings = {
-    trusted-users = [username];
+    trusted-users = [ username ];
 
     # Enable flakes globally
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     # Substituters that will be considered before the official ones (https://cache.nixos.org)
-    substituters = [
-      "https://nix-community.cachix.org"
-    ];
+    substituters = [ "https://nix-community.cachix.org" ];
 
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -33,7 +31,7 @@ in {
       noto-fonts-emoji
 
       # Nerdfonts
-      (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
 
     # Use fonts specified by user rather than default ones
@@ -43,10 +41,10 @@ in {
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
 
@@ -66,7 +64,7 @@ in {
       enable = true;
       packages = [ pkgs.dconf ];
     };
-    
+
     picom = {
       enable = true;
       activeOpacity = 1.0;
@@ -83,7 +81,7 @@ in {
         rounded-corners-exclude = [ "class_i = 'polybar'" ];
       };
     };
-    
+
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -92,7 +90,8 @@ in {
         enable = true;
         mouse = {
           accelProfile = "flat"; # Disable acceleration
-          middleEmulation = false; # Disable emulating middle click using left + right clicks
+          middleEmulation =
+            false; # Disable emulating middle click using left + right clicks
         };
       };
 
@@ -101,7 +100,7 @@ in {
         package = pkgs.i3-gaps;
         # extraPackages = with pkgs; [i3lock i3blocks];
       };
-    
+
       # Configure keymap in X11
       xkb = {
         layout = "us";
@@ -133,7 +132,6 @@ in {
     # };
   };
 
-  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   modifier = "Mod4";
   workspace = {
@@ -13,7 +13,32 @@ let
     nine = "nine"; # 9
     browser = "browser"; # 0
   };
+  polybarSpotifyScript = pkgs.writeShellScriptBin "polybar-spotify" ''
+    PATH=${lib.makeBinPath [ pkgs.coreutils pkgs.playerctl ]}
+    FORMAT="{{ title }} - {{ artist }}"
+
+    PLAYERCTL_STATUS=$(playerctl --player=spotify status 2>/dev/null)
+    EXIT_CODE=$?
+
+    if [ $EXIT_CODE -eq 0 ]; then
+      STATUS=$PLAYERCTL_STATUS
+    else
+      STATUS="Inactive"
+    fi
+
+    if [ "$1" == "--status" ]; then
+      echo "$STATUS"
+    else
+      if [[ "$STATUS" = @(Stopped|Paused|Inactive) ]]; then
+        echo " "
+      else
+        playerctl --player=spotify metadata --format "$FORMAT"
+      fi
+    fi
+  '';
 in {
+  home.packages = [ polybarSpotifyScript ];
+
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -181,6 +206,14 @@ in {
       pulseSupport = true;
     };
     script = "polybar &";
-    extraConfig = (builtins.readFile ./modules.ini);
+    extraConfig = (builtins.readFile ./modules.ini) + ''
+      [module/spotify]
+      type = custom/script
+      interval = 1.0
+      tail = true
+      format-prefix = " "
+      format = <label>
+      exec = ${polybarSpotifyScript}/bin/polybar-spotify
+    '';
   };
 }

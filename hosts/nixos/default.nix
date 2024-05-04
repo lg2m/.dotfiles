@@ -1,20 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }: {
-  imports =
-    [
-      ../../modules/system.nix
-      ../../modules/nixos/core/i18n.nix
-      ../../modules/nixos/core/user-group.nix
-      ../../modules/nixos/core/nix.nix
-      ../../modules/nixos/core/packages.nix
-      ../../modules/nixos/core/ssh.nix
-      ../../modules/nixos/core/user-group.nix
-      
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{
+  imports = [
+    ../../modules/system.nix
+    ../../modules/nixos/core/i18n.nix
+    ../../modules/nixos/core/user-group.nix
+    ../../modules/nixos/core/nix.nix
+    ../../modules/nixos/core/packages.nix
+    ../../modules/nixos/core/ssh.nix
+    ../../modules/nixos/core/user-group.nix
+
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
