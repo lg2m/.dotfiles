@@ -14,12 +14,12 @@ in
         unfocused_hollow = true;
       };
       window = {
+        decorations = "full";
         opacity = 0.80;
         dynamic_padding = true;
-        dynamic_title = true;
         padding = {
-          x = 5;
-          y = 5;
+          x = 10;
+          y = 10;
         };
       };
       scrolling = {

@@ -15,5 +15,7 @@
 
     # Misc
     ffmpeg-full
+    feh
+    xbanish
   ];
 }
