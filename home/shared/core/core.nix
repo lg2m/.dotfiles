@@ -6,11 +6,12 @@
     cowsay
     gnupg
     gnumake
+    termshot
 
     # utils
     fzf
     fd
-    (ripgrep.override {withPCRE2 = true;})
+    (ripgrep.override { withPCRE2 = true; })
     jq
     just
     delta # Viewer for git diff output
@@ -57,17 +58,15 @@
 
     bat = {
       enable = true;
-      config = {theme = "tokyonight";};
+      config = { theme = "tokyonight"; };
       themes = {
         tokyonight = {
-          src =
-            pkgs.fetchFromGitHub
-            {
-              owner = "folke";
-              repo = "tokyonight.nvim";
-              rev = "9bf9ec53d5e87b025e2404069b71e7ebdc3a13e5";
-              sha256 = "sha256-ItCmSUMMTe8iQeneIJLuWedVXsNgm+FXNtdrrdJ/1oE=";
-            };
+          src = pkgs.fetchFromGitHub {
+            owner = "folke";
+            repo = "tokyonight.nvim";
+            rev = "9bf9ec53d5e87b025e2404069b71e7ebdc3a13e5";
+            sha256 = "sha256-ItCmSUMMTe8iQeneIJLuWedVXsNgm+FXNtdrrdJ/1oE=";
+          };
           file = "extras/sublime/tokyonight_night.tmTheme";
         };
       };

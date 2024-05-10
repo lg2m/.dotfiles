@@ -60,6 +60,9 @@ in {
 
   # List services that you want to enable:
   services = {
+    udisks2.enable = true;
+    gvfs.enable = true;
+
     dbus = {
       enable = true;
       packages = [ pkgs.dconf ];

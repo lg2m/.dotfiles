@@ -14,10 +14,12 @@ let
     browser = "browser"; # 0
   };
   polybarSpotifyScript = pkgs.writeShellScriptBin "polybar-spotify" ''
+    # https://github.com/PrayagS/polybar-spotify/blob/master/get_spotify_status.sh
     PATH=${lib.makeBinPath [ pkgs.coreutils pkgs.playerctl ]}
     FORMAT="{{ title }} - {{ artist }}"
+    PLAYER="spotify"
 
-    PLAYERCTL_STATUS=$(playerctl --player=spotify status 2>/dev/null)
+    PLAYERCTL_STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
     EXIT_CODE=$?
 
     if [ $EXIT_CODE -eq 0 ]; then
@@ -32,7 +34,7 @@ let
       if [[ "$STATUS" = @(Stopped|Paused|Inactive) ]]; then
         echo " "
       else
-        playerctl --player=spotify metadata --format "$FORMAT"
+        playerctl --player=$PLAYER metadata --format "$FORMAT"
       fi
     fi
   '';

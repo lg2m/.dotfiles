@@ -11,6 +11,7 @@
     scrot
     xfce.thunar
     nnn
+    udiskie
   ];
 
   # replace default editor with helix
