@@ -20,27 +20,27 @@ in {
     profiles = {
       default = {
         config = {
-          "DP-3" = {
+          "DP-2" = {
             enable = true;
             dpi = 96;
             mode = "1920x1080";
             primary = true;
-            rate = "120";
+            rate = "144";
             position = "0x0";
           };
-          "DP-2" = {
+          "DP-0" = {
             enable = true;
             dpi = 96; # Adjust the DPI to your preference
             mode = "1920x1080";
             primary = false;
-            rate = "144";
+            rate = "120";
             position =
-              "1920x0"; # DP-2 is on the right, starts right after the width of DP-3
+              "1920x0"; # DP-0 is on the right, starts right after the width of DP-2
           };
         };
         fingerprint = {
-          "DP-3" = "--CONNECTED-BUT-EDID-UNAVAILABLE--DP-3";
           "DP-2" = "--CONNECTED-BUT-EDID-UNAVAILABLE--DP-2";
+          "DP-0" = "--CONNECTED-BUT-EDID-UNAVAILABLE--DP-0";
         };
       };
     };
