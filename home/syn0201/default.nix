@@ -20,7 +20,7 @@
       claude-code.enable = true;
       codex.enable = false;
       executor.enable = false;
-      herdr.enable = false;
+      herdr.enable = true;
       plannotator.enable = false;
     };
 
