@@ -21,6 +21,7 @@ in
       claude-code.enable = true;
       codex.enable = true;
       pi.enable = true;
+      grok-build.enable = true;
     };
 
     # Development deltas

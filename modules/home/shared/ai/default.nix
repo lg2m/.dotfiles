@@ -11,6 +11,7 @@ in
     ./claude-code
     ./codex
     ./executor
+    ./grok-build
     ./herdr
     ./opencode
     ./pi

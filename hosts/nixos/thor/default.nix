@@ -50,6 +50,8 @@
     hosts = {
       "127.0.0.1" = [
         "iam-service"
+        # Mortal Online 2: force EAC to use Proton EasyAntiCheat Runtime's module.
+        "modules-cdn.eac-prod.on.epicgames.com"
       ];
     };
   };
