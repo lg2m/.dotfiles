@@ -25,6 +25,7 @@ in
     };
 
     # Development deltas
+    game-development.enable = true;
     jetbrains = {
       clion.enable = false;
       datagrip.enable = true;
@@ -64,7 +65,6 @@ in
       discord
       boxflat
       vscode
-      blender
       obsidian
       slack
       teams-for-linux
@@ -80,7 +80,6 @@ in
       silicon
 
       juce
-      aseprite
     ];
   };
 
