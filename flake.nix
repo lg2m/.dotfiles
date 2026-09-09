@@ -52,6 +52,7 @@
           overlays = [
             (final: prev: {
               herdr = inputs.herdr.packages.${final.stdenv.hostPlatform.system}.herdr;
+              aseprite-mcp = final.callPackage ./pkgs/by-name/aseprite-mcp.nix { };
               executor = final.callPackage ./pkgs/by-name/executor.nix { };
               helium-browser = final.callPackage ./pkgs/by-name/helium-browser.nix { };
               linear-cli = final.callPackage ./pkgs/by-name/linear-cli.nix { };

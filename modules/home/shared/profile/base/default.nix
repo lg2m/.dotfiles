@@ -80,6 +80,7 @@ in
       unzip
       yq
       zip
+      rar
 
       # Language toolchains & LSPs (prefer a flake)
       bash-language-server

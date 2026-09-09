@@ -9,6 +9,7 @@
     ./eww
     ./awww
     ./screenshot
+    ./screencast
     ./yofi
     ./hyprlock
     ./hypridle

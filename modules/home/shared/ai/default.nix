@@ -8,6 +8,7 @@ let
 in
 {
   imports = [
+    ./aseprite-mcp
     ./claude-code
     ./codex
     ./executor

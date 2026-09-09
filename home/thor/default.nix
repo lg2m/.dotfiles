@@ -17,6 +17,10 @@ in
     # Baseline (common toggles + packages live in profile/base)
     profile.base.enable = true;
     ai = {
+      aseprite-mcp = {
+        enable = true;
+        workspace = "${config.home.homeDirectory}/Development/repos/github.com/Waypoint-Interactive/0";
+      };
       opencode.enable = true;
       claude-code.enable = true;
       codex.enable = true;
